@@ -40,13 +40,15 @@ if (cupon === cuponValido) {
     console.log("Descuento adicional por cupón aplicado: $" + descuentoPorCupon);
 }
 
-alert("El total a pagar es: $" + total);
-
-// Preguntar al usuario si quiere pagar en 3 cuotas
-let pagarEnCuotas = confirm("¿Desea pagar en 3 cuotas sin interés?");
-if (pagarEnCuotas) {
-    let cuota = total / 3;
-    alert("El total a pagar es: $" + total + "\nPagado en 3 cuotas de: $" + cuota.toFixed(2) + " cada una.");
-} else {
-    alert("El total a pagar es: $" + total);
+// Función para calcular las cuotas
+function calcularCuotas(total) {
+    let cuotas = parseInt(prompt("¿En cuántas cuotas desea pagar?"));
+    if (cuotas > 0) {
+        let cuota = total / cuotas;
+        alert("El total a pagar es: $" + total + "\nTotal a pagar en " + cuotas + " cuotas de: $" + cuota.toFixed(2) + " cada una.");
+    }else {
+        alert("El total a pagar es: $" + total);
+    }
 }
+
+calcularCuotas(total);
